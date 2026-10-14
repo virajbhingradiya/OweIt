@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import Navbar from './Navbar.tsx'
 
 function App() {
   const [status, setStatus] = useState('checking...')
@@ -11,13 +12,13 @@ function App() {
   }, [])
 
   return (
-    <main>
-      <h1>
-        <img src="/logo.png" alt="OweIt" width="263" height="64" />
-      </h1>
-      <p>Split expenses with friends.</p>
-      <p>API status: <strong>{status}</strong></p>
-    </main>
+    <>
+      <Navbar />
+      <main>
+        <h1>Split expenses with friends.</h1>
+        <p>API status: <strong>{status}</strong></p>
+      </main>
+    </>
   )
 }
 
