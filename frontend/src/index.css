@@ -1,7 +1,9 @@
 :root {
-  /* Brand colors, taken from the logo. */
-  --navy: #191d3a;
-  --green: #2ed6a3;
+  /* Palette: https://colorhunt.co/palette/0f28541c4d8d4988c4bde8f5 */
+  --navy: #0f2854;
+  --blue: #1c4d8d;
+  --sky: #4988c4;
+  --ice: #bde8f5;
   --border: #e6e8ef;
 
   font-family: system-ui, sans-serif;
@@ -61,7 +63,7 @@ main {
 }
 
 .btn:focus-visible {
-  outline: 2px solid var(--navy);
+  outline: 2px solid var(--sky);
   outline-offset: 2px;
 }
 
@@ -70,14 +72,14 @@ main {
 }
 
 .btn-ghost:hover {
-  background: #f2f3f7;
+  background: var(--ice);
 }
 
 .btn-primary {
-  background: var(--green);
-  color: var(--navy);
+  background: var(--blue);
+  color: #fff;
 }
 
 .btn-primary:hover {
-  filter: brightness(0.95);
+  background: var(--navy);
 }
