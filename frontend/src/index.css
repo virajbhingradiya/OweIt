@@ -1,5 +1,11 @@
 :root {
+  /* Brand colors, taken from the logo. */
+  --navy: #191d3a;
+  --green: #2ed6a3;
+  --border: #e6e8ef;
+
   font-family: system-ui, sans-serif;
+  color: var(--navy);
   /* Light only for now: the logo has a white background and navy text. */
   color-scheme: light;
   background: #fff;
@@ -10,7 +16,68 @@ body {
 }
 
 main {
-  max-width: 40rem;
+  max-width: 64rem;
   margin: 0 auto;
   padding: 2rem 1rem;
+}
+
+/* Navbar */
+.navbar {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar-inner {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.navbar-brand img {
+  display: block;
+  height: 32px;
+  width: auto;
+}
+
+.navbar-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 2px;
+}
+
+.btn-ghost {
+  color: var(--navy);
+}
+
+.btn-ghost:hover {
+  background: #f2f3f7;
+}
+
+.btn-primary {
+  background: var(--green);
+  color: var(--navy);
+}
+
+.btn-primary:hover {
+  filter: brightness(0.95);
 }
