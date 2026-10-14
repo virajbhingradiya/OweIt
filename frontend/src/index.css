@@ -1,0 +1,16 @@
+:root {
+  font-family: system-ui, sans-serif;
+  /* Light only for now: the logo has a white background and navy text. */
+  color-scheme: light;
+  background: #fff;
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
