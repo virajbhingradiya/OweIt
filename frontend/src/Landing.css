@@ -1,0 +1,284 @@
+/* Landing page. Radius rule: buttons 8px (from index.css), panels and tiles 16px. */
+
+.landing {
+  --muted: #46557a; /* 7.4:1 on white, 5.6:1 on ice */
+  max-width: 72rem;
+  padding: 0 1rem;
+}
+
+.landing h2 {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0 0 2rem;
+}
+
+.landing h3 {
+  font-size: 1.25rem;
+  margin: 0 0 0.5rem;
+}
+
+.landing p {
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.btn-lg {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.05rem;
+}
+
+/* Hero: copy left, sample group right. */
+.hero {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 4rem;
+  align-items: center;
+  padding: 5rem 0 6rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 5.5vw, 4rem);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin: 0 0 1.25rem;
+}
+
+.hero-copy > p {
+  font-size: 1.2rem;
+  max-width: 32rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.sample-group {
+  margin: 0;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 24px 48px -24px rgb(15 40 84 / 0.25);
+}
+
+.sample-group figcaption {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.sample-group ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sample-group li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.75rem 0;
+}
+
+.sample-group li + li {
+  border-top: 1px solid var(--border);
+}
+
+.sample-group small {
+  display: block;
+  color: var(--muted);
+  margin-top: 0.15rem;
+}
+
+.sample-balances {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 12px;
+  background: var(--ice);
+  display: grid;
+  gap: 0.35rem;
+}
+
+.sample-balances p {
+  color: var(--navy);
+}
+
+/* How it works: stacked rows, verb on the left, one sentence on the right. */
+.steps {
+  padding: 4rem 0;
+  scroll-margin-top: 4rem; /* keep the heading clear of the sticky navbar */
+}
+
+.steps ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 2px solid var(--navy);
+}
+
+.steps li {
+  display: grid;
+  grid-template-columns: 18rem 1fr;
+  gap: 2rem;
+  align-items: baseline;
+  padding: 1.75rem 0;
+}
+
+.steps li + li {
+  border-top: 1px solid var(--border);
+}
+
+.steps h3 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.steps p {
+  font-size: 1.1rem;
+  max-width: 36rem;
+}
+
+/* Features: 4-cell bento, wide and narrow tiles alternate per row. */
+.features {
+  padding: 4rem 0;
+}
+
+.bento {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.tile {
+  border-radius: 16px;
+  padding: 2rem;
+  min-height: 9rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.tile-wide {
+  grid-column: span 2;
+}
+
+.tile-ice {
+  background: var(--ice);
+}
+
+.tile-ice p {
+  color: var(--navy);
+}
+
+.tile-navy {
+  background: var(--navy);
+  color: #fff;
+}
+
+.tile-navy p {
+  color: var(--ice);
+}
+
+.tile-blue {
+  background: var(--blue);
+  color: #fff;
+}
+
+.tile-blue p {
+  color: var(--ice);
+}
+
+.tile-plain {
+  border: 1px solid var(--border);
+}
+
+/* Closing call to action. */
+.closing {
+  margin: 4rem 0;
+  padding: 3.5rem 2rem;
+  border-radius: 16px;
+  background: var(--ice);
+  text-align: center;
+}
+
+.closing h2 {
+  margin-bottom: 1.5rem;
+}
+
+.landing-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0 3rem;
+  border-top: 1px solid var(--border);
+}
+
+.landing-footer img {
+  display: block;
+  height: 24px;
+  width: auto;
+}
+
+.landing-footer small {
+  color: var(--muted);
+}
+
+/* Tactile press feedback on every button. */
+.btn:active {
+  transform: translateY(1px);
+}
+
+/* Entry motion: hero fades up once on load. Skipped for users who prefer reduced motion. */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  .hero-copy,
+  .sample-group {
+    animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .sample-group {
+    animation-delay: 0.12s;
+  }
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+  }
+}
+
+/* Phones and small tablets: everything stacks into one column. */
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding: 2.5rem 0 3rem;
+  }
+
+  .steps li {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .bento {
+    grid-template-columns: 1fr;
+  }
+
+  .tile-wide {
+    grid-column: auto;
+  }
+
+  .tile {
+    min-height: 0;
+  }
+}
