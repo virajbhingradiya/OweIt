@@ -13,8 +13,13 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ClerkProvider
       publishableKey={publishableKey}
-      // Clerk's sign-in/sign-up modals use our palette's primary blue.
-      appearance={{ variables: { colorPrimary: '#1c4d8d' } }}
+      appearance={{
+        // Clerk's sign-in/sign-up modals use our palette's primary blue.
+        variables: { colorPrimary: '#1c4d8d' },
+        // Hides the "Development mode" badge shown with pk_test_ keys. Cosmetic only: the app still
+        // runs on Clerk's dev instance (relaxed limits). Switch to a production instance before launch.
+        options: { unsafe_disableDevelopmentModeWarnings: true },
+      }}
     >
       <App />
     </ClerkProvider>
