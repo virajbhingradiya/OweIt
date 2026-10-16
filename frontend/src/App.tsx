@@ -1,4 +1,6 @@
+import { Show } from '@clerk/react'
 import { useEffect, useState } from 'react'
+import Landing from './Landing.tsx'
 import Navbar from './Navbar.tsx'
 
 function App() {
@@ -14,10 +16,15 @@ function App() {
   return (
     <>
       <Navbar />
-      <main>
-        <h1>Split expenses with friends.</h1>
-        <p>API status: <strong>{status}</strong></p>
-      </main>
+      <Show when="signed-out">
+        <Landing />
+      </Show>
+      <Show when="signed-in">
+        <main>
+          <h1>Split expenses with friends.</h1>
+          <p>API status: <strong>{status}</strong></p>
+        </main>
+      </Show>
     </>
   )
 }
